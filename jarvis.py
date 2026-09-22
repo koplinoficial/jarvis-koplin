@@ -10,21 +10,13 @@ def executar_comando(comando):
 
     comando_interpretado = interpretar_comando(comando)
 
-    if comando_interpretado == "hora_atual":
-        hora = hora_atual()
-        falar(f"Agora são {hora}.")
-        return
+    acao = comando_interpretado["acao"]
+    alvo = comando_interpretado["alvo"]
 
-    elif comando_interpretado == "abrir_chrome":
-        falar("Abrindo Google Chrome.")
-        abrir_chrome()
+    print(f"DEBUG - ação: [{acao}]")
+    print(f"DEBUG - alvo: [{alvo}]")
 
-    elif comando_interpretado == "abrir_vscode":
-        falar("Abrindo Visual Studio Code.")
-        abrir_vscode()
-
-    else:
-        falar("Ainda não conheço este comando.")        
+    falar(f"Entendi: ação {acao}, alvo {alvo}.")
     
     #saida no prompt
 print("=" * 50)

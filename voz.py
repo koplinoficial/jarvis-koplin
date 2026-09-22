@@ -17,7 +17,10 @@ def ouvir():
     with sr.Microphone() as source:
         print("\n= Estou ouvindo...")
 
-        audio = reconhecimento_de_voz.listen(source)
+        audio = reconhecimento_de_voz.listen(
+            source,
+            timeout=5,
+            phrase_time_limit=5)
 
     try:
         texto = reconhecimento_de_voz.recognize_google(
